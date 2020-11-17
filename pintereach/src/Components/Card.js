@@ -1,17 +1,15 @@
 import React from "react";
 import "./Card.css";
 import axios from "axios";
-// import {articles} from '../App'
 
 const Card = () => {
-
-    const articles = {
-        "userarticleid": 5,
-        "articletitle": "Gaming the World: How Sports Are Reshaping Global Politics and Culture",
-        "category": "sports",
-        "article": "asdfkj;lkjasdlgkjlkgjlskjglskjdglkjgdlk...."
-    }
-
+  const articles = {
+    userarticleid: 5,
+    articletitle:
+      "Gaming the World: How Sports Are Reshaping Global Politics and Culture",
+    category: "sports",
+    article: "asdfkj;lkjasdlgkjlkgjlskjglskjdglkjgdlk....",
+  };
 
   const fetchData = () => {
     axios
@@ -35,16 +33,18 @@ const Card = () => {
             alt="pintereach logo"
           />
         </div>
-        <h2>Article title: <br/> {articles.articletitle} </h2>
+        <h2>
+          Article title: <br /> {articles.articletitle}{" "}
+        </h2>
         <div className="article-card-category">
-          Category: <br/> {articles.category}
+          Category: <br /> {articles.category}
         </div>
         <div className="article-card-number">
-          Article Number: <br/> {articles.userarticleid} <br />
+          Article Number: <br /> {articles.userarticleid} <br />
         </div>
         <div className="article-card-article">
           <p>
-            Article: <br/> {articles.article}
+            Article: <br /> {articles.article}
           </p>
         </div>
       </div>
