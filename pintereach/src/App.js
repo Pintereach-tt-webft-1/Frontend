@@ -4,7 +4,12 @@ import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
 import SignIn from './Components/SignIn';
+<<<<<<< HEAD
 // import App from "./App"
+=======
+import NavBar from './Components/NavBar';
+import LogIn from './Components/LogIn';
+>>>>>>> fe7642a1a771ac35770c72eb8f50895fb9021447
 
 
 const articles = 
@@ -39,15 +44,22 @@ function App() {
   const UserContext = createContext(null);
 
   return (
-
+   
     <UserContext.Provider>
       <div className="App">
+        <header> 
+          <NavBar />
+        </header>
 
         <ArticleList addToSavedList={addToSavedList} articles={articles}/>
         <Card />
         <SignIn/>
+<<<<<<< HEAD
 
         {/* <Button color="primary">Hello World</Button> */}
+=======
+        <LogIn/>
+>>>>>>> fe7642a1a771ac35770c72eb8f50895fb9021447
  
       </div>
     </UserContext.Provider>
