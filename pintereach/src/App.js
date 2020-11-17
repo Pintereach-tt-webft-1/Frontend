@@ -1,12 +1,11 @@
-import { Button } from "@material-ui/core";
 import "./App.css";
 
 import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
 import SignIn from './Components/SignIn';
-import LogIn from "./Components/LogIn"
-import NavBar from './Components/NavBar'
+import NavBar from './Components/NavBar';
+import LogIn from './Components/LogIn';
 
 
 const articles = 
@@ -51,8 +50,7 @@ function App() {
         <Card />
         <SignIn/>
         <LogIn/>
-
-        <Button color="primary">Hello World</Button>
+ 
       </div>
     </UserContext.Provider>
   );
