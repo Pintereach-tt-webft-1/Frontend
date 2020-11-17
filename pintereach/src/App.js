@@ -1,11 +1,10 @@
-import { Button } from "@material-ui/core";
 import "./App.css";
 
 import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
 import SignIn from './Components/SignIn';
-import LogIn from "./Components/LogIn"
+import App from "./App"
 
 
 const articles = 
@@ -44,12 +43,12 @@ function App() {
     <UserContext.Provider>
       <div className="App">
 
-    
         <ArticleList addToSavedList={addToSavedList} articles={articles}/>
         <Card />
         <SignIn/>
 
         <Button color="primary">Hello World</Button>
+ 
       </div>
     </UserContext.Provider>
   );
