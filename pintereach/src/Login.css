@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     padding:0px;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 12%, rgba(23,212,217,1) 65%, rgba(0,212,255,1) 84%);
+    background: linear-gradient(42deg, rgba(1,92,186,1) 12%, rgba(23,212,217,1) 65%, rgba(0,212,255,1) 84%);
     
   }
      
@@ -194,6 +194,7 @@ button {
     right: 0;
     z-index: -1; 
   }
+
   button:hover::before {
     filter: blur(25px);
     opacity: 1;
