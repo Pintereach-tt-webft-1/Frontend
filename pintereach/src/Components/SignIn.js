@@ -15,7 +15,7 @@ const initialFormErrors = {
 
 
 export default function SignIn(){
-    const [user, setUser] =useState({})
+    const [user, setUser] =useState([])
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     
@@ -34,41 +34,43 @@ export default function SignIn(){
         inputChange(name, value)
     }
 
-    // const postNewUser =(newUser) =>{
-    //     axios.post('https://reqres.in/api/users', newUser)
-    //     .then((res)=>{
-    //       setUser([res.data, ...user])
-    //       setFormValues(initialFormValues)
-    //     })
-    //     .catch((err)=>{
-    //       console.log(err)
-    //     })
-    //   }
+    const postNewUser =(newUser) =>{
+        axios.post('http://unit4-bw.herokuapp.com/createnewuser', newUser)
+        .then((res)=>{
+            console.log(res, 'res')
+          setUser([res.data, ...user])
+          setFormValues(initialFormValues)
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+      }
 
-    // const formSubmit = ()=>{
-    //     const newUser = {
-    //       first_name:formValues.username.trim(),
-    //       email:formValues.email.trim(),
-    //       password:formValues.password.trim(),
+
+    const formSubmit = ()=>{
+        const newUser = {
+          username:formValues.username.trim(),
+          primaryemail:formValues.email.trim(),
+          password:formValues.password.trim(),
           
-    //     }
-    //     postNewUser(newUser)
-    //   }
-    //   const onSubmit = (evt) => {
-    //     evt.preventDefault();
-    //     formSubmit();
-    //   };
+        }
+        postNewUser(newUser)
+      }
+      const onSubmit = (evt) => {
+        evt.preventDefault();
+        formSubmit();
+      };
 
 
     return(
-        <form className='form-container'>
+        <form className='form-container' onSubmit={onSubmit}>
             <div>
             <h2>Sign Up!</h2>
             </div>
 
             <div className='form-group-input'>
                 <h4>What we need from you</h4>
-                <lable>
+                <label>
                     Username
                     <input
                     type='text'
@@ -77,7 +79,7 @@ export default function SignIn(){
                     onChange={onChange}
                     placeholder='Username'
                     />
-                </lable>
+                </label>
                 <label>
                     Email
                     <input

@@ -41,6 +41,7 @@ function App() {
 
     <UserContext.Provider>
       <div className="App">
+
         <ArticleList addToSavedList={addToSavedList} articles={articles}/>
         <Card />
         <SignIn/>
