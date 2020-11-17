@@ -14,28 +14,40 @@ const initialFormErrors = {
 
 function LogIn(props){
 
-    
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
 
-    const inputChange = (name, value) =>{
-        setFormValues({...formValues,[name]:value
-        })
-    }
 
-    const onChange = (evt) => {
-        const {name, value }=evt.target;
-        inputChange(name, value)
-    }
 
-      const onSubmit = (evt) => {
-        evt.preventDefault();
+    const login = e => {
+        e.preventDefault();
         console.log(formValues)
-        setFormValues(initialFormValues)
-      };
+        axios.post('http://unit4-bw.herokuapp.com/login', `grant_type=password&username=${formValues.username}&password=${formValues.password}`, {
+          headers: {
+            // btoa is converting our client id/client secret into base64
+            Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }).then(res => {
+            
+          console.log("DATA!!!!!", res.data)
+          localStorage.setItem('token', res.data.access_token);
+        //   window.location='/';
+        }).catch(error => {
+            debugger;
+            console.log("error", error);
+        })
+      }
+
+
+
+
+    const onChange = e => setFormValues({
+        ...formValues,
+        [e.target.name]: e.target.value
+        })
 
     
-
 
 return(
     <div className="login-box">
@@ -43,7 +55,7 @@ return(
             <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
         </div>
   <h2>Login</h2>
-  <form onSubmit={onSubmit}>
+  <form onSubmit={login}>
     <div className="user-box">
       <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={onChange}/>
       <label>Username</label>
