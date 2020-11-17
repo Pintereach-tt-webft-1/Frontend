@@ -1,5 +1,9 @@
 import { Button } from "@material-ui/core";
 import "./App.css";
+
+import React, { createContext, useState } from "react";
+import Card from './Components/Card';
+import ArticleList from "./Components/ArticleList";
 import React, { createContext } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
@@ -28,16 +32,23 @@ const articles =
 
 
 function App() {
+  const [savedList, setSavedList] = useState([]);
+  
+  //function that handles creating a new array with the article objects, **need to handle this using context
+  const addToSavedList = article => {
+    setSavedList([...savedList, article]);
+  };
+
   const UserContext = createContext(null);
 
   return (
 
     <UserContext.Provider>
       <div className="App">
-        <ArticleList articles={articles}/>
-        <Card />
-        
 
+    
+        <ArticleList addToSavedList={addToSavedList} articles={articles}/>
+        <Card />
         <SignIn/>
 
         <Button color="primary">Hello World</Button>
