@@ -3,31 +3,39 @@ import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import '../Login.css'
 
+const initialFormValues = {
+    username:'',
+    password:'',
+}
+const initialFormErrors = {
+    username:'',
+    password:'',
+}
 
 function LogIn(props){
 
-    const [form,setForm]=useState({
-        user: '',
-        password: '',
-    });
+    
+    const [formValues, setFormValues] = useState(initialFormValues)
+    const [formErrors, setFormErrors] = useState(initialFormErrors)
 
-    const [errors,setErrors]=useState({
-        user: '',
-        password: '',
-    });
-
-    const change = event => {
-        setForm(event.target.value);
-    };
-
-    const submit = event => {
-        debugger;
-        event.preventDefault();
-        const newUser={
-            user: form.user,
-            password: form.password
-        }
+    const inputChange = (name, value) =>{
+        setFormValues({...formValues,[name]:value
+        })
     }
+
+    const onChange = (evt) => {
+        const {name, value }=evt.target;
+        inputChange(name, value)
+    }
+
+      const onSubmit = (evt) => {
+        evt.preventDefault();
+        console.log(formValues)
+        setFormValues(initialFormValues)
+      };
+
+    
+
 
 return(
     <div className="login-box">
@@ -35,13 +43,13 @@ return(
             <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
         </div>
   <h2>Login</h2>
-  <form>
+  <form onSubmit={onSubmit}>
     <div className="user-box">
-      <input type="text" name="" placeholder="Username" value={form.user} onChange={change}/>
+      <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={onChange}/>
       <label>Username</label>
     </div>
     <div className="user-box">
-      <input type="password" name="password" placeholder="Password" value={form.password} onChange={change}/>
+      <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={onChange}/>
       <label>Password</label>
     </div>
     <div className="btnDiv">

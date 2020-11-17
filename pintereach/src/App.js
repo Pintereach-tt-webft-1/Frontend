@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 import "./App.css";
 import React, { createContext } from "react";
 import SignIn from './Components/SignIn';
@@ -13,8 +12,8 @@ function App() {
 
     <UserContext.Provider>
       <div className="App">
-        <SignIn/>
-        <Button color="primary">Hello World</Button>
+        {/* <SignIn/> */}
+        <LogIn/>
       </div>
     </UserContext.Provider>
   );

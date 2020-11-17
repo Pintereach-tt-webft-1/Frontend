@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import { useState} from 'react'
 import axios from 'axios'
 
@@ -37,7 +37,7 @@ export default function SignIn(){
     // const postNewUser =(newUser) =>{
     //     axios.post('https://reqres.in/api/users', newUser)
     //     .then((res)=>{
-    //       setUser([res.data,... user])
+    //       setUser([res.data, ...user])
     //       setFormValues(initialFormValues)
     //     })
     //     .catch((err)=>{
