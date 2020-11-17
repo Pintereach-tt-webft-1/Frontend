@@ -1,29 +1,27 @@
 import React from 'react';
 import './Card.css';
 
+
+
 const Card = () => {
 
-
-
+    
     return (
         <div className="article-container">
         <div className="article-card">
-            <h1>Pintereach Logo here</h1>
-            <h2>Article title here</h2>
+        <div className="login-logo" >
+            <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
+        </div>
+            <h2>Article title here: </h2>
             <div className="article-card-category">
-                Category here: Gaming
+                Category here: 
             </div>
             <div className="article-card-number">
-                Article Number here: 3<br/>
+                Article Number here:  <br/>
             </div>
             <div className="article-card-article">
                 <p>Article here:<br/>
-                    jdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsalgkjalg
-                    jaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsalgkjalgkjaslkfgdjalke
-                    jsfdglkajsdglkjasdgjdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglk
-                    jasdgjdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsal
-                    gkjalgkjaslkfgdj
-                    alkejsfdglkajsdglkjasdg</p>
+                   </p>
             </div>
         </div>
       </div>  
@@ -31,4 +29,3 @@ const Card = () => {
 }
 
 export default Card
-

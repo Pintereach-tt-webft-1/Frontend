@@ -68,7 +68,7 @@ export default function SignIn(){
 
             <div className='form-group-input'>
                 <h4>What we need from you</h4>
-                <lable>
+                <label>
                     Username
                     <input
                     type='text'
@@ -77,7 +77,7 @@ export default function SignIn(){
                     onChange={onChange}
                     placeholder='Username'
                     />
-                </lable>
+                </label>
                 <label>
                     Email
                     <input
