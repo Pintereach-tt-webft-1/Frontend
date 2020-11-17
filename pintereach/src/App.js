@@ -1,10 +1,12 @@
-
-
 import { Button } from "@material-ui/core";
 import "./App.css";
+
 import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
+import React, { createContext } from "react";
+import SignIn from './Components/SignIn';
+import LogIn from "./Components/LogIn"
 
 const articles = 
   {
@@ -25,7 +27,6 @@ const articles =
       ]
   }
 
-
 function App() {
   const [savedList, setSavedList] = useState([]);
   
@@ -42,7 +43,7 @@ function App() {
       <div className="App">
         <ArticleList addToSavedList={addToSavedList} articles={articles}/>
         <Card />
-        
+        <SignIn/>
         <Button color="primary">Hello World</Button>
       </div>
     </UserContext.Provider>
