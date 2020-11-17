@@ -4,9 +4,6 @@ import "./App.css";
 import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
-import React, { createContext } from "react";
-import Card from './Components/Card';
-import ArticleList from "./Components/ArticleList";
 import SignIn from './Components/SignIn';
 import LogIn from "./Components/LogIn"
 
@@ -47,8 +44,7 @@ function App() {
       <div className="App">
 
     
-        <ArticleList addToSavedList={addToSavedList} articles={articles}/>
-        <Card />
+      
         <SignIn/>
 
         <Button color="primary">Hello World</Button>
