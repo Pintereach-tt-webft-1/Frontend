@@ -44,8 +44,7 @@ function App() {
       <div className="App">
 
     
-        <ArticleList addToSavedList={addToSavedList} articles={articles}/>
-        <Card />
+      
         <SignIn/>
 
         <Button color="primary">Hello World</Button>
