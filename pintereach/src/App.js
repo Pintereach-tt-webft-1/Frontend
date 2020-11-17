@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { createContext } from "react";
 import SignIn from './Components/SignIn';
-import LogIn from "./Components/LogIn"
+import App from "./App"
 
 
 
@@ -13,7 +13,7 @@ function App() {
     <UserContext.Provider>
       <div className="App">
         {/* <SignIn/> */}
-        <LogIn/>
+        <App/>
       </div>
     </UserContext.Provider>
   );

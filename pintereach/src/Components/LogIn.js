@@ -32,7 +32,7 @@ function LogIn(props){
             
           console.log("DATA!!!!!", res.data)
           localStorage.setItem('token', res.data.access_token);
-        //   window.location='/';
+        //window.location='/';
         }).catch(error => {
             debugger;
             console.log("error", error);
