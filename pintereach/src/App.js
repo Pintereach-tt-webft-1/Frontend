@@ -4,7 +4,7 @@ import React, { createContext, useState } from "react";
 import Card from './Components/Card';
 import ArticleList from "./Components/ArticleList";
 import SignIn from './Components/SignIn';
-import App from "./App"
+import LogIn from './Components/LogIn'
 
 
 const articles = 
@@ -45,8 +45,9 @@ function App() {
         <ArticleList addToSavedList={addToSavedList} articles={articles}/>
         <Card />
         <SignIn/>
+        <LogIn/>
 
-        <Button color="primary">Hello World</Button>
+     
  
       </div>
     </UserContext.Provider>
