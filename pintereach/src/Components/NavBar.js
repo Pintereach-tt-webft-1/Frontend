@@ -3,6 +3,7 @@ import { Link, Switch, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import LogIn from './LogIn'
 import SignIn from './SignIn'
+import ArticleList from './ArticleList'
 
 const kf = keyframes`
   100% {
@@ -58,6 +59,7 @@ function NavBar() {
                     <EachLinkStyles to='/'>Home</EachLinkStyles>
                     <EachLinkStyles to='/signin'>Sign In</EachLinkStyles>
                     <EachLinkStyles to='/login'>Log In</EachLinkStyles>
+                    <EachLinkStyles to='/article-list'>Articles</EachLinkStyles>
                 </AllLinksStyles>
             </NavBarStyles>
             <Switch>
@@ -66,6 +68,9 @@ function NavBar() {
                 </Route>
                 <Route path='/login'>
                     <LogIn />
+                </Route>
+                <Route path='/article-list'>
+                    <ArticleList />
                 </Route>
             </Switch>
         </div>

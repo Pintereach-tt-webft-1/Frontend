@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { axiosWithAuth } from "./Utils/axiosWithAuth";
+
 
 // const {push} = useHistory(); // uncomment when nav is complete to avoid merge conflicts
 // import { Link } from "react-router-dom"; //uncomment after adding link to individual cards
@@ -12,6 +14,21 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
 
     // console.log('ArticleList articles.articles.userarticles: ', props.articles.userarticles) //to test data comming through
 
+ const [articles, setArticles] = useState([])
+
+
+    useEffect(()=>{
+      const getData = () => {
+      axiosWithAuth()
+      .get('/userarticles/userarticles')
+      .then((res)=> {
+        console.log('ArticleList res.data: ', res.data)
+        // setArticles(res)
+        console.log('ArticleList articles: ',articles)
+      })
+    }
+      getData();
+    }, [])
 
   const viewSavedHandler = () =>{
       console.log('clicking  View saved Articles button')
@@ -35,15 +52,7 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
         <button onClick={viewSavedHandler} >View saved Articles</button>
 
         <h1>ArticleList</h1>
-        {
-            props.articles.userarticles.map(article => (
-              <div className='article-list-title'>
-                <h3>{article.articletitle}</h3>
-                <button onClick={saveArticleHandler} >Save Article</button>
-              </div>
-    
-            ))
-          }
+
         
     </div>
   );
