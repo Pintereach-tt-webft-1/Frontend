@@ -3,7 +3,6 @@ import { Link, Switch, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import LogIn from './LogIn'
 import SignIn from './SignIn'
-import ArticleList from './ArticleList'
 
 const kf = keyframes`
   100% {
@@ -32,17 +31,30 @@ const AllLinksStyles = styled.div`
 `
 
 const EachLinkStyles = styled(Link)`
+    letter-spacing: .1em;
+    position: relative; 
     text-decoration: none;
     color: black ;
     padding: 1% 3%;
-    border-radius: 15px;
-    border: solid 2px black;
+    ::before {
+        background: #fff;
+        content: '';
+        filter: blur(10px); 
+        opacity: .75;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: -1; 
+    }
     
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.1);
         transition: transform 0.5s ease-in-out;
-        background-color: black;
-        color: white;
+        background-color: #03e9f4;
+        border-radius: 15px;
+        border: solid 2px black;
     }
     transition: transform 0.5s ease-in-out;
 
@@ -57,9 +69,8 @@ function NavBar() {
                 <img src="https://i.imgur.com/hbzvVQU.png" alt="pintereach logo"/>
                 <AllLinksStyles className='nav-links'>
                     <EachLinkStyles to='/'>Home</EachLinkStyles>
-                    <EachLinkStyles to='/signin'>Sign In</EachLinkStyles>
+                    <EachLinkStyles to='/signin'>Sign Up</EachLinkStyles>
                     <EachLinkStyles to='/login'>Log In</EachLinkStyles>
-                    <EachLinkStyles to='/article-list'>Articles</EachLinkStyles>
                 </AllLinksStyles>
             </NavBarStyles>
             <Switch>
@@ -68,9 +79,6 @@ function NavBar() {
                 </Route>
                 <Route path='/login'>
                     <LogIn />
-                </Route>
-                <Route path='/article-list'>
-                    <ArticleList />
                 </Route>
             </Switch>
         </div>
