@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,7 +11,7 @@ body {
     flex-direction: column;
     padding:0px;
     background: linear-gradient(42deg, rgba(1,92,186,1) 12%, rgba(23,212,217,1) 65%, rgba(0,212,255,1) 84%);
-    
+    height:100vh;
   }
      
   html {
@@ -198,4 +200,9 @@ button {
   button:hover::before {
     filter: blur(25px);
     opacity: 1;
+  }
+
+  .error {
+    color: red;
+    font-size: 15px;
   }
