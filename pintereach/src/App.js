@@ -1,8 +1,7 @@
 import "./App.css";
-
-
 import React, { createContext } from "react";
 import NavBar from './Components/NavBar';
+
 
 
 const articles = 
@@ -38,6 +37,8 @@ function App() {
         <header> 
           <NavBar />
         </header>
+
+ 
 
 
       </div>
