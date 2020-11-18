@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { axiosWithAuth } from "./Utils/axiosWithAuth";
+import { Link } from "react-router-dom"
 
 
 // const {push} = useHistory(); // uncomment when nav is complete to avoid merge conflicts
@@ -60,8 +61,10 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
         {
             articles.map(article => (
               <div className='article-list-title'>
-                <h3>{article.articletitle}</h3>
-                <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
+                <Link key={article.id} to={`/card/${article.id}`}>
+                  <h3>{article.articletitle}</h3>
+                  <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
+                </Link>
               </div>
     
             ))

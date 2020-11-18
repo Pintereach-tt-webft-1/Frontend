@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import ArticleList from './ArticleList'
 import LogIn from './LogIn'
 import SignIn from './SignIn'
+import Card from './Card'
 
 const kf = keyframes`
   100% {
@@ -85,6 +86,10 @@ function NavBar() {
 
                 <Route path='/article-list'>
                     <ArticleList />
+                </Route>
+
+                <Route path='/card/:id'>
+                    <Card />
                 </Route>
             </Switch>
         </div>
