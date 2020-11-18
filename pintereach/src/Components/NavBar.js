@@ -40,7 +40,8 @@ const EachLinkStyles = styled(Link)`
     &:hover {
         transform: scale(1.15);
         transition: transform 0.5s ease-in-out;
-        background-color: #ffffff;
+        background-color: black;
+        color: white;
     }
     transition: transform 0.5s ease-in-out;
 
