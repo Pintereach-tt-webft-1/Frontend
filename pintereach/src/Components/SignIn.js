@@ -64,11 +64,20 @@ export default function SignIn(){
 
     return(
         <form className='form-container' onSubmit={onSubmit}>
+            <div className='login-logo'>
+                <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
+            </div>
             <div>
             <h2>Sign Up!</h2>
             </div>
 
             <div className='form-group-input'>
+            <div className='login-box'>
+                <div className='login-logo'>
+                <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
+                </div>
+            </div>
+
                 <h4>What we need from you</h4>
                 <label>
                     Username

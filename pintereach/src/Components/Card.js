@@ -1,155 +1,55 @@
-import React from 'react';
-import './Card.css';
+import React from "react";
+import "./Card.css";
+import axios from "axios";
 
-const Card = (props) => {
+const Card = () => {
+  const articles = {
+    userarticleid: 5,
+    articletitle:
+      "Gaming the World: How Sports Are Reshaping Global Politics and Culture",
+    category: "sports",
+    article: "asdfkj;lkjasdlgkjlkgjlskjglskjdglkjgdlk....",
+  };
 
-// const { userarticles, userarticleid, articletitle, category } = props.article;
+  const fetchData = () => {
+    axios
+      .get(`http://unit4-bw.herokuapp.com/userarticles/userarticles`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  fetchData();
 
-    return (
-        <div className="article-card">
-            <h1>Article title here</h1>
-            <div className="article-card-category">
-                Category here: Gaming
-            </div>
-            <div className="article-card-number">
-                Article Number here: 3<br/>
-            </div>
-            <div className="article-card-article">
-                <p>Article here:<br/>
-                    jdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsalgkjalg
-                    jaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsalgkjalgkjaslkfgdjalke
-                    jsfdglkajsdglkjasdgjdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglk
-                    jasdgjdflkjsalgkjalgkjaslkfgdjalkejsfdglkajsdglkjasdgjdflkjsal
-                    gkjalgkjaslkfgdj
-                    alkejsfdglkajsdglkjasdg</p>
-            </div>
+  return (
+    <div className="article-container">
+      <div className="article-card">
+        <div className="login-logo">
+          <img
+            src="https://i.imgur.com/lmdVQMv.png"
+            width="200px"
+            alt="pintereach logo"
+          />
         </div>
-    )
-}
+        <h2>
+          Article title: <br /> {articles.articletitle}{" "}
+        </h2>
+        <div className="article-card-category">
+          Category: <br /> {articles.category}
+        </div>
+        <div className="article-card-number">
+          Article Number: <br /> {articles.userarticleid} <br />
+        </div>
+        <div className="article-card-article">
+          <p>
+            Article: <br /> {articles.article}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Card
-
-
-// [
-//     {
-//         "userid": 4,
-//         "username": "admin",
-//         "primaryemail": "admin@lambdaschool.local",
-//         "userarticles": [
-//             {
-//                 "userarticleid": 5,
-//                 "articletitle": "Gaming the World: How Sports Are Reshaping Global Politics and Culture",
-//                 "category": "sports"
-//             },
-//             {
-//                 "userarticleid": 6,
-//                 "articletitle": "Article",
-//                 "category": "misc"
-//             }
-//         ],
-//         "roles": [
-//             {
-//                 "role": {
-//                     "roleid": 1,
-//                     "name": "ADMIN"
-//                 }
-//             },
-//             {
-//                 "role": {
-//                     "roleid": 2,
-//                     "name": "USER"
-//                 }
-//             },
-//             {
-//                 "role": {
-//                     "roleid": 3,
-//                     "name": "DATA"
-//                 }
-//             }
-//         ]
-//     },
-//     {
-//         "userid": 7,
-//         "username": "cinnamon",
-//         "primaryemail": "cinnamon@lambdaschool.local",
-//         "userarticles": [
-//             {
-//                 "userarticleid": 8,
-//                 "articletitle": "Article",
-//                 "category": "misc"
-//             },
-//             {
-//                 "userarticleid": 9,
-//                 "articletitle": "Article",
-//                 "category": "misc"
-//             },
-//             {
-//                 "userarticleid": 10,
-//                 "articletitle": "Article",
-//                 "category": "misc"
-//             }
-//         ],
-//         "roles": [
-//             {
-//                 "role": {
-//                     "roleid": 2,
-//                     "name": "USER"
-//                 }
-//             },
-//             {
-//                 "role": {
-//                     "roleid": 3,
-//                     "name": "DATA"
-//                 }
-//             }
-//         ]
-//     },
-//     {
-//         "userid": 11,
-//         "username": "barnbarn",
-//         "primaryemail": "barnbarn@lambdaschool.local",
-//         "userarticles": [
-//             {
-//                 "userarticleid": 12,
-//                 "articletitle": "Article",
-//                 "category": "misc"
-//             }
-//         ],
-//         "roles": [
-//             {
-//                 "role": {
-//                     "roleid": 2,
-//                     "name": "USER"
-//                 }
-//             }
-//         ]
-//     },
-//     {
-//         "userid": 13,
-//         "username": "puttat",
-//         "primaryemail": "puttat@school.lambda",
-//         "userarticles": [],
-//         "roles": [
-//             {
-//                 "role": {
-//                     "roleid": 2,
-//                     "name": "USER"
-//                 }
-//             }
-//         ]
-//     },
-//     {
-//         "userid": 14,
-//         "username": "misskitty",
-//         "primaryemail": "misskitty@school.lambda",
-//         "userarticles": [],
-//         "roles": [
-//             {
-//                 "role": {
-//                     "roleid": 2,
-//                     "name": "USER"
-//                 }
-//             }
-//         ]
-//     }
-// ]
+export default Card;
