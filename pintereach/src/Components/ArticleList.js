@@ -15,6 +15,7 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
     // console.log('ArticleList articles.articles.userarticles: ', props.articles.userarticles) //to test data comming through
 
  const [articles, setArticles] = useState([])
+ const [savedArticles, setSavedArticles] = useState([])
 
 
     useEffect(()=>{
@@ -23,12 +24,13 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
       .get('/userarticles/userarticles')
       .then((res)=> {
         console.log('ArticleList res.data: ', res.data)
-        // setArticles(res)
+        setArticles(res.data)
         console.log('ArticleList articles: ',articles)
       })
     }
       getData();
-    }, [])
+    },[])
+
 
   const viewSavedHandler = () =>{
       console.log('clicking  View saved Articles button')
@@ -37,7 +39,10 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
 
   const saveArticleHandler = (article) =>{
       console.log('clicking save article button')
+      console.log('article: ', article)
     //   props.addToSavedList(article)
+    setSavedArticles({savedArticles, ...article})
+    console.log('savedArticles: ',savedArticles)
   }
 
   
@@ -52,7 +57,15 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
         <button onClick={viewSavedHandler} >View saved Articles</button>
 
         <h1>ArticleList</h1>
-
+        {
+            articles.map(article => (
+              <div className='article-list-title'>
+                <h3>{article.articletitle}</h3>
+                <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
+              </div>
+    
+            ))
+            }
         
     </div>
   );
