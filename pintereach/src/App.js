@@ -1,10 +1,8 @@
 import "./App.css";
 
-import React, { createContext, useState } from "react";
-import Card from './Components/Card';
-import ArticleList from "./Components/ArticleList";
-import SignIn from './Components/SignIn';
-import LogIn from './Components/LogIn'
+
+import React, { createContext } from "react";
+import NavBar from './Components/NavBar';
 
 
 const articles = 
@@ -27,28 +25,21 @@ const articles =
   }
 
 
+
+
 function App() {
-  const [savedList, setSavedList] = useState([]);
-  
-  //function that handles creating a new array with the article objects, **need to handle this using context
-  const addToSavedList = article => {
-    setSavedList([...savedList, article]);
-  };
 
   const UserContext = createContext(null);
 
   return (
-
+   
     <UserContext.Provider>
       <div className="App">
+        <header> 
+          <NavBar />
+        </header>
 
-        <ArticleList addToSavedList={addToSavedList} articles={articles}/>
-        <Card />
-        <SignIn/>
-        <LogIn/>
 
-     
- 
       </div>
     </UserContext.Provider>
   );
