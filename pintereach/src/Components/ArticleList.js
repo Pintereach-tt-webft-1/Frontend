@@ -63,10 +63,9 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
               <div className='article-list-title'>
                 <Link key={article.id} to={`/card/${article.id}`}>
                   <h3>{article.articletitle}</h3>
-                  <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
                 </Link>
+                <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
               </div>
-    
             ))
             }
         
