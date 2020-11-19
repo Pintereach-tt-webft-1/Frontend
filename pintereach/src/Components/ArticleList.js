@@ -58,14 +58,14 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
           <button onClick={viewSavedHandler} >View saved Articles</button>
         
 
-        <h1>ArticleList</h1>
+        <h1 className="article-main-title">ArticleList</h1>
         {
             articles.map(article => (
               <div className='article-list-title'>
                 <Link key={article.id} to={`/card/${article.id}`}>
                   <h3>{article.articletitle}</h3>
                 </Link>
-                <button onClick={()=>saveArticleHandler(article)} >Save Article</button>
+                <button className="save-article-btn" onClick={()=>saveArticleHandler(article)} >Save Article</button>
               </div>
             ))
             }

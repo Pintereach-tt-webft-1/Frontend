@@ -56,3 +56,27 @@ h2 {
     border-radius: 5%;
     color: rgb(61, 211, 238);
   }
+
+  .article-main-title {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline black;
+  }
+
+  .article-list-title h3 {
+    text-decoration: underline black;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+
+  .save-article-btn {
+    padding: .5rem;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-left: 47%;
+  }
+
