@@ -5,6 +5,7 @@ import ArticleList from './ArticleList'
 import LogIn from './LogIn'
 import SignIn from './SignIn'
 import Card from './Card'
+import SavedArticles from './SavedArticles'
 
 const kf = keyframes`
   100% {
@@ -86,6 +87,10 @@ function NavBar() {
 
                 <Route path='/article-list'>
                     <ArticleList />
+                </Route>
+
+                <Route path='/saved-articles'>
+                    <SavedArticles />
                 </Route>
 
                 <Route path='/card/:id'>
