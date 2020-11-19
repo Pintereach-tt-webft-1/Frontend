@@ -91,9 +91,9 @@ function NavBar() {
                     <ArticleList />
                 </Route>
 
-                <Route path='/saved-articles'>
+                {/* <Route path='/saved-articles'>
                     <SavedArticles />
-                </Route>
+                </Route> */}
 
                 <Route path='/card/:id'>
                     <Card />
