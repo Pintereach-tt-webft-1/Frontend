@@ -1,6 +1,9 @@
 import React from 'react';
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import * as yup from 'yup';
+import schema from './Schema'
 
 const initialFormValues = {
     username:'',
@@ -12,18 +15,33 @@ const initialFormErrors = {
     email:'',
     password:''
 }
-
+const initialDisabled = true
 
 export default function SignIn(){
     const [user, setUser] =useState([])
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
+    const [disabled, setDisabled] = useState(initialDisabled)
     
     const values = formValues
 
    
     // Change Handler Section
     const inputChange = (name, value) =>{
+        yup.reach(schema, name)
+        .validate(value)
+        .then(()=>{
+            setFormErrors({
+                ...formErrors,
+                [name]:'',
+            })
+        })
+        .catch((err)=>{
+            setFormErrors({
+                ...formErrors,
+                [name]:err.errors[0],
+            });
+        })
         setFormValues({
             ...formValues,
             [name]:value
@@ -45,6 +63,7 @@ export default function SignIn(){
           console.log(err)
         })
       }
+      
 
 
     const formSubmit = ()=>{
@@ -60,27 +79,24 @@ export default function SignIn(){
         evt.preventDefault();
         formSubmit();
       };
+      useEffect(()=>{
+          schema.isValid(formValues).then((valid)=>{
+              setDisabled(!valid)
+          })
+      }, [formValues])
 
 
     return(
-        <form className='form-container' onSubmit={onSubmit}>
-            <div className='login-logo'>
-                <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
-            </div>
-            <div>
-            <h2>Sign Up!</h2>
-            </div>
-
-            <div className='form-group-input'>
+        <div className='pusher' onSubmit={onSubmit}>
             <div className='login-box'>
                 <div className='login-logo'>
-                <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
+                    <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
                 </div>
-            </div>
+            
 
-                <h4>What we need from you</h4>
-                <label>
-                    Username
+                <h2>Sign Up</h2>
+                <form onSubmit={onSubmit}>
+                <div className='user-box'>
                     <input
                     type='text'
                     name='username'
@@ -88,9 +104,12 @@ export default function SignIn(){
                     onChange={onChange}
                     placeholder='Username'
                     />
-                </label>
-                <label>
-                    Email
+                    <label>
+                    Username
+                    </label>
+                </div>
+                <div className='user-box'>
+                    <p className='error' >{formErrors.username}</p>
                     <input
                     type = 'email'
                     name = 'email'
@@ -98,9 +117,12 @@ export default function SignIn(){
                     onChange={onChange}
                     placeholder ='Email'
                     />
-                </label>
-                <label>
-                    Password
+                    <label>
+                    Email
+                    </label>
+                    </div>
+                    <div className='user-box'>
+                    <p className='error' >{formErrors.email}</p>
                     <input
                     type='text'
                     name ='password'
@@ -108,12 +130,22 @@ export default function SignIn(){
                     onChange={onChange}
                     placeholder ='Password'
                     />
-                </label>
-                <div>
-                <button>Submit</button>
+                    <label>
+                    Password
+                    </label>
+                    <p className='error' >{formErrors.password}</p>
+
+                    </div>
+                <div className ='btnDiv'>
+                <button disabled={disabled}>Submit</button>
+                </div>
+                </form>
+                <div className='SignUp'>
+                    <a href ='#'>Forgot Password</a>
+                    <Link to ='/login'>Login</Link>
                 </div>
             </div>
-        </form>
+        </div>
 
 
     )

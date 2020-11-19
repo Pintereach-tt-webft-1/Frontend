@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import ArticleList from './ArticleList';
+import SavedArticles from './SavedArticles'
 import LogIn from './LogIn';
 import SignIn from './SignIn';
 import Card from './Card';
