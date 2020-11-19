@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Slab&display=swap');
+
+
+
+
+
+
+.home-div{
+  
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    padding:0px;
+    height:100%;
+    width: 100%;
+    background: url('https://i.imgur.com/Km2sySB.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+   
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    color:  white;
+    font-size:40px;
+    padding: 0%;
+    text-shadow: 3px 3px black;
+    margin-bottom: 30%;
+    margin-top: 15%;
+    margin-left: 2%;
+    font-family: 'Lato', sans-serif;
+    align-content: center;
+    
+}
+
+.home-text h1 {
+    margin: 0%;
+}
+
+.home-div h2 {
+    font-size: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.create{
+    display: flex;
+    justify-content: center;
+    margin-left: 24%;
+    margin-top: 2%;
+    border-radius: 5%;
+    width: 40%;
+    padding:2% 6% 2% 6%;
+    background-color: #03e9f4;
+    text-align: center;
+    color:white;
+    font-size: 22px;
+    text-shadow: 1px 1px black;
+    font-family: 'Lato', sans-serif;
+    opacity: .8;
+    position: relative;
+    text-decoration: none;
+    box-shadow: 2px 2px black;
+}
+
+.create:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  footer{
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: .5%;
+    padding-bottom: .5%;
+    background: linear-gradient(42deg, rgba(1,92,186,1) 12%, rgba(23,212,217,1) 65%, rgba(0,212,255,1) 84%);
+  }
+
+
+  .contact{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .contact a{
+      color :white;
+      text-decoration: none;
+      display: flex;
+      margin-top: 8%;
+      padding-left: 40%;
+      padding-right:40%;
+      white-space: nowrap;
+      font-size:20px;
+      font-family: 'Lato', sans-serif;
+      text-shadow: 2px 2px black;
+
+      
+  }
+
+.contact img {
+    margin-left: 15%;
+}
+
+  .Icons{
+      display: flex;
+      justify-content: space-between;
+      width: fit-content;
+  }
+
+  .Icons img{
+      width: 20%;
+      border-radius: 30%;
+      margin-right: 10%;
+      padding-right: 5%;
+      box-shadow: 1px 1px black;
+  }

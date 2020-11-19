@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { createContext } from "react";
 import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
 
 
 
@@ -11,10 +12,18 @@ function App() {
   return (
    
     <UserContext.Provider>
-      <div className="App">
+      <div >
         <header> 
           <NavBar />
         </header>
+
+        
+        <footer>
+        <Footer/>
+        </footer>
+ 
+
+
 
       </div>
     </UserContext.Provider>

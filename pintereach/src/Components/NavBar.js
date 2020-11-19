@@ -1,11 +1,13 @@
-import React from 'react'
-import { Link, Switch, Route } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components'
-import ArticleList from './ArticleList'
-import LogIn from './LogIn'
-import SignIn from './SignIn'
-import Card from './Card'
-import SavedArticles from './SavedArticles'
+
+import React from 'react';
+import { Link, Switch, Route } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+import ArticleList from './ArticleList';
+import LogIn from './LogIn';
+import SignIn from './SignIn';
+import Card from './Card';
+import Home from './Home';
+
 
 const kf = keyframes`
   100% {
@@ -21,7 +23,7 @@ const NavBarStyles = styled.nav`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 2%;
+    margin: 1% 0% 1% 1%;
 `
 
 const AllLinksStyles = styled.div`
@@ -95,6 +97,9 @@ function NavBar() {
 
                 <Route path='/card/:id'>
                     <Card />
+                </Route>
+                <Route path='/'>
+                <Home/>
                 </Route>
             </Switch>
         </div>
