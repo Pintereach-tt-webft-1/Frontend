@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { axiosWithAuth } from "./Utils/axiosWithAuth";
-import { Link } from "react-router-dom"
+import { Link, useParams, useHistory } from "react-router-dom"
+import { withRouter } from 'react-router-dom'
+import SavedArticles from "./SavedArticles";
 
 
 // const {push} = useHistory(); // uncomment when nav is complete to avoid merge conflicts
 // import { Link } from "react-router-dom"; //uncomment after adding link to individual cards
-
-
 
 
 function ArticleList(props) { //will pass props when api is set up perhaps something like ArticleList({object}) or ArticleList(props)
@@ -17,7 +17,7 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
 
  const [articles, setArticles] = useState([])
  const [savedArticles, setSavedArticles] = useState([])
-
+ const {push} = useHistory();
 
     useEffect(()=>{
       const getData = () => {
@@ -35,7 +35,7 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
 
   const viewSavedHandler = () =>{
       console.log('clicking  View saved Articles button')
-    // push('/saved-articles') //uncomment when nav is complete to avoid merge conflicts
+    push('/') //uncomment when nav is complete to avoid merge conflicts
   }
 
   const saveArticleHandler = (article) =>{
@@ -43,9 +43,9 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
       console.log('article: ', article)
     //   props.addToSavedList(article)
     setSavedArticles({savedArticles, ...article})
-    console.log('savedArticles: ',savedArticles)
+    console.log('savedArticles: ', savedArticles)
   }
-
+  console.log('savedArticles outside useEffect: ', savedArticles)
   
 
     //uncomment and insert inplace of <h2>{article.articletitle}</h2>after .map function, after api has been set up
@@ -54,8 +54,9 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
     // </Link>
   return (
     <div className = "article-list">
-
-        <button onClick={viewSavedHandler} >View saved Articles</button>
+        
+          <button onClick={viewSavedHandler} >View saved Articles</button>
+        
 
         <h1>ArticleList</h1>
         {
