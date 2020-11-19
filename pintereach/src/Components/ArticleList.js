@@ -55,7 +55,7 @@ function ArticleList(props) { //will pass props when api is set up perhaps somet
   return (
     <div className = "article-list">
         
-          <button onClick={viewSavedHandler} >View saved Articles</button>
+          <button className="view-saved-handler-btn" onClick={viewSavedHandler} >View saved Articles</button>
         
 
         <h1 className="article-main-title">ArticleList</h1>
