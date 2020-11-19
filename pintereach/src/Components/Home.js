@@ -13,10 +13,9 @@ export default function Home(){
             <h2>Save articles. Share with your friends.</h2>
             <Link className='create' to='/signin'>Create Free Account!</Link>
             </div>
-            <Route path='/signin'>
-                <SignIn />
-            </Route>
+            
            
        </div>)
 }
+
 

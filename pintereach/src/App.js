@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { createContext } from "react";
 import NavBar from './Components/NavBar';
-import Home from './Components/Home';
 import Footer from './Components/Footer';
 
 
@@ -39,7 +38,7 @@ function App() {
         <header> 
           <NavBar />
         </header>
-        <Home/>
+        
         <footer>
         <Footer/>
         </footer>
