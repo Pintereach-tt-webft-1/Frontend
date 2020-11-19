@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
 import '../Login.css'
 import * as yup from "yup"
 import schema from './Schema';
+import { Link, Route } from 'react-router-dom'
+import SignIn from './SignIn';
+
+//Setting up intital Values.//
 
 const initialFormValues = {
     username:'',
@@ -15,6 +18,8 @@ const initialFormErrors = {
 }
 
 function LogIn(props){
+
+  //Setting State for Forms and Errors//
 
     const [formValues, setFormValues] = useState(initialFormValues)
     const [errors, setErrors] = useState(initialFormErrors)
@@ -28,6 +33,7 @@ function LogIn(props){
     }
 
 
+    //onSubmit POST to server for Auth.
 
     const login = e => {
         e.preventDefault();
@@ -51,7 +57,7 @@ function LogIn(props){
       }
 
 
-
+      //Set-up On change for Form/Error State/
 
     const onChange = e => {
         const { value, name } = e.target
@@ -64,6 +70,7 @@ function LogIn(props){
     // }, [formValues])
 
 return(
+  <div className="pusher" >
     <div className="login-box">
         <div className="login-logo" >
             <img src="https://i.imgur.com/lmdVQMv.png" width="200px" alt="pintereach logo"/>
@@ -88,8 +95,12 @@ return(
   </form>
   <div className="SignUp" >
         <a href="#">Forgot Password</a>
-        <a href="#">Register</a>
+        <Link to='/signin'>Register</Link>
     </div>
+    <Route path='/signin'>
+        <SignIn />
+    </Route>
+</div>
 </div>
 )
 

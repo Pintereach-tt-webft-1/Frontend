@@ -18,7 +18,7 @@ const NavBarStyles = styled.nav`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 2%;
+    margin: 1% 0% 1% 1%;
 `
 
 const AllLinksStyles = styled.div`
@@ -56,7 +56,7 @@ function NavBar() {
                 <img src="https://i.imgur.com/hbzvVQU.png" alt="pintereach logo"/>
                 <AllLinksStyles className='nav-links'>
                     <EachLinkStyles to='/'>Home</EachLinkStyles>
-                    <EachLinkStyles to='/signin'>Sign In</EachLinkStyles>
+                    <EachLinkStyles to='/signin'>Sign Up</EachLinkStyles>
                     <EachLinkStyles to='/login'>Log In</EachLinkStyles>
                 </AllLinksStyles>
             </NavBarStyles>
