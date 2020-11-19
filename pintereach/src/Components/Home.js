@@ -5,6 +5,7 @@ import SignIn from './SignIn';
 
 
 
+
 export default function Home(){
     return(<div className="home-div" >
             <div className="home-text">
@@ -15,6 +16,7 @@ export default function Home(){
             <Route path='/signin'>
                 <SignIn />
             </Route>
+           
        </div>)
 }
 
